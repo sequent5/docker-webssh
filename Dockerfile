@@ -1,6 +1,5 @@
 # Version 0.0.1
-FROM ubuntu:latest
-RUN apt-get update && apt-get install -y python3.4 python3-pip
+FROM python:3.7.3-alpine3.9
 RUN pip3 install webssh
-EXPOSE 8080
+EXPOSE 8080/tcp
 CMD ["wssh", "--address=0.0.0.0", "--port=8080"]
