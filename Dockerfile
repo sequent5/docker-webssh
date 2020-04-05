@@ -1,6 +1,8 @@
 # Version 0.0.1
-FROM ubuntu:latest
-RUN apt-get update && apt-get install -y python3.4 python3-pip
+FROM python:alpine3.9
+RUN apk add --no-cache --virtual .build-deps binutils-gold curl g++ gcc gnupg libgcc linux-headers make libffi-dev openssl-dev
+&& rm -rf /var/cache/apk/*
 RUN pip3 install webssh
+RUN apk del .build-deps
 EXPOSE 8080/tcp
 CMD ["wssh", "--address=0.0.0.0", "--port=8080"]
