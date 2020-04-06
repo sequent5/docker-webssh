@@ -6,7 +6,6 @@ RUN pip3 install webssh
 RUN apk del .build-deps
 RUN mkdir /data
 VOLUME /data
-EXPOSE 80/tcp 443/tcp
+EXPOSE 8080/tcp 4443/tcp
 WORKDIR /
-CMD ["wssh", "--address=0.0.0.0","--port=80"]
-#"--sslport=443","--certfile='/data/cert.crt'","--keyfile='/data/cert.key'"]
+CMD ["wssh", "--address=0.0.0.0","--port=8080","--sslport=4443","--certfile='/data/cert.crt'","--keyfile='/data/cert.key'"]
