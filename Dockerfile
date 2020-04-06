@@ -8,4 +8,5 @@ RUN mkdir /data
 VOLUME /data
 EXPOSE 80/tcp 443/tcp
 WORKDIR /
-CMD ["wssh", "--address=0.0.0.0", "--sslport=443","--certfile='/data/cert.crt'","--keyfile='/data/cert.key'"]
+CMD ["wssh", "--address=0.0.0.0","--port=80"]
+#"--sslport=443","--certfile='/data/cert.crt'","--keyfile='/data/cert.key'"]
