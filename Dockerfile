@@ -1,6 +1,8 @@
 # Version 0.0.1
 FROM python:alpine3.9
-RUN apk add --no-cache --virtual .build-deps binutils-gold curl g++ gcc gnupg libgcc linux-headers make libffi-dev openssl-dev
+RUN apk update && apk add --no-cache --virtual .build-deps binutils-gold curl g++ gcc gnupg libgcc linux-headers make libffi-dev openssl-dev ca-certificates
+COPY ./mycert.crt /usr/local/share/ca-certificates/mycert.crt
+RUN update-ca-certificates
 RUN rm -rf /var/cache/apk/*
 RUN pip3 install webssh
 RUN apk del .build-deps
