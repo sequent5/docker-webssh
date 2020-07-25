@@ -12,4 +12,4 @@ EXPOSE 80/tcp 443/tcp
 WORKDIR /
 #CMD wssh --port=80 --sslport=443 --certfile='/data/cert.crt' --keyfile='/data/cert.key' 
 #ENTRYPOINT ["wssh", "--port=80","--sslport=443","--certfile='/data/cert.crt'","--keyfile='/data/cert.key'"]
-CMD ["wssh", "--address='127.0.0.1'","--port=80"]
+CMD ["wssh","--port=80"]
